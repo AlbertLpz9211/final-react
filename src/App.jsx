@@ -4,12 +4,15 @@ import RootPage from './pages/RootPage'
 import ProductDetail from './pages/ProductDetail'
 import Login from './pages/Login'
 import Purchases from './pages/Purchases'
+import NavBar from './components/NavBar'
+import 'bootswatch/dist/journal/bootstrap.min.css'; 
 
 
 function App() {
 
   return (
     <HashRouter>
+      <NavBar />
       <Routes>
         <Route path='/' element ={<RootPage />}/>
         <Route path='/login' element={<Login />}/>
