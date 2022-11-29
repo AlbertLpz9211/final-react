@@ -3,7 +3,7 @@ import axios from "axios";
 import { setIsLoadingScreen } from "./isLoadingScreen.slice";
 
 export const productsSlice = createSlice({
-  name: "products",
+  name: "producs",
   initialState: [],
   reducers: {
     setProducts: (state, action) => {

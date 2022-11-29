@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getProductThunk } from "../store/slices/products.slice";
 
 const ProductDetail = () => {
@@ -12,14 +12,26 @@ const ProductDetail = () => {
 
   const productsList = useSelector((state) => state.producs);
 
-  const product = productsList.find(
+  const productFund = productsList.find(
     (productItem) => productItem.id === Number(id)
   );
-  console.log(product);
+
+  const relatedProduct = productsList.filter(
+    (productItem) => productItem.category.id === productFund.category.id
+  );
+
+  console.log(relatedProduct);
+
   return (
     <div>
-      <h1>{product?.title}</h1>
-      <img src={product?.productImgs[0]} alt="" />
+      <h1>{productFund?.title}</h1>
+      <img src={productFund?.productImgs[0]} alt="" />
+      <h3>Price: ${productFund?.price}</h3>
+      {relatedProduct.map((newProducts) => (
+        <li>
+          <Link to={`/product/${newProducts.id}`}>{newProducts.title}</Link>
+        </li>
+      ))}
     </div>
   );
 };
