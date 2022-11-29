@@ -1,13 +1,15 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 export const isLoadingScreen = createSlice({
-    name: 'isLoadingScreen',
-    initialState: true,
-    reducers: {
+  name: "isLoadingScreen",
+  initialState: true,
+  reducers: {
+    setIsLoadingScreen: (state, action) => {
+      return action.payload;
+    },
+  },
+});
 
-    }
-})
-
-export const {  } = isLoadingScreen.actions;
+export const { setIsLoadingScreen } = isLoadingScreen.actions;
 
 export default isLoadingScreen.reducer;

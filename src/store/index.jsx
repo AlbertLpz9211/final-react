@@ -5,6 +5,6 @@ import productsSlice from "./slices/products.slice";
 export default configureStore({
   reducer: {
     producs: productsSlice,
-    isLoadinScreen: isLoadingScreen
+    isLoadinScreen: isLoadingScreen,
   },
 });
