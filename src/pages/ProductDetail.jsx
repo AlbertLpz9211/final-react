@@ -26,7 +26,9 @@ const ProductDetail = () => {
     <div>
       <h1>{productFund?.title}</h1>
       <img src={productFund?.productImgs[0]} alt="" />
-      <h3>Price: ${productFund?.price}</h3>
+      <h4>Price: ${productFund?.price}</h4>
+      <br />
+      <h3>Related Products</h3>
       {relatedProduct.map((newProducts) => (
         <li>
           <Link to={`/product/${newProducts.id}`}>{newProducts.title}</Link>
