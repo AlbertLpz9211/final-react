@@ -15,9 +15,9 @@ const ProductDetail = () => {
   const productFund = productsList.find(
     (productItem) => productItem.id === Number(id)
   );
-
   const relatedProduct = productsList.filter(
-    (productItem) => productItem.category.id === productFund.category.id
+    (productItem) => 
+    productItem.category.id === productFund.category.id && productItem.id != Number(id)
   );
 
   console.log(relatedProduct);
@@ -30,7 +30,7 @@ const ProductDetail = () => {
       <br />
       <h3>Related Products</h3>
       {relatedProduct.map((newProducts) => (
-        <li>
+        <li key={newProducts.id}>
           <Link to={`/product/${newProducts.id}`}>{newProducts.title}</Link>
         </li>
       ))}
