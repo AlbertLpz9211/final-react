@@ -19,7 +19,7 @@ const NavBar = () => {
             <Nav.Link as={Link} to="/purchases">
               Purchases
             </Nav.Link>
-            <Nav.Link as={"Button"}>cart</Nav.Link>
+            <Nav.Link as={"button"}>cart</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

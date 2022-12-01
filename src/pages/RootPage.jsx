@@ -34,8 +34,6 @@ const RootPage = () => {
       .then((res) => setCategoriesProduct(res.data.data.categories));
   }, []);
 
-
-
   return (
     <div>
       <Row>
@@ -44,7 +42,7 @@ const RootPage = () => {
           <ListGroup>
             {categoriesProduct.map((category) => (
               <ListGroup.Item
-                // key={category.id}
+                key={category.id}
                 style={{ cursor: "pointer" }}
                 onClick={() => dispatch(filterProductThunk(category.id))}
               >
@@ -56,8 +54,6 @@ const RootPage = () => {
 
         {/* INPUT SEARCH */}
         <Col lg={9}>
-
-
           <InputGroup className="mb-3">
             <Form.Control
               placeholder="Type a product"
@@ -68,7 +64,6 @@ const RootPage = () => {
             />
             <Button
               variant="outline-secondary"
-              id="button-addon2"
               onClick={() => dispatch(searchProductThunk(inputSearch))}
             >
               Search
@@ -78,9 +73,12 @@ const RootPage = () => {
           {/* PRODUCTOS */}
           <Row xs={1} md={2} lg={3} className="g-4">
             {products.map((productsItems) => (
-              <Col>
-                <Card key={productsItems.id}>
-                  <Link to={`/product/${productsItems.id}`} style ={{textDecoration: 'none'}}>
+              <Col key={productsItems.id}>
+                <Card>
+                  <Link
+                    to={`/product/${productsItems.id}`}
+                    style={{ textDecoration: "none" }}
+                  >
                     <Card.Img
                       variant="top"
                       src={productsItems.productImgs[0]}
@@ -88,8 +86,9 @@ const RootPage = () => {
                     />
                     <Card.Body>
                       <Card.Title> {productsItems.title}</Card.Title>
-                      <Card.Text><br />
-                                  <p>Price: {productsItems.price} </p>
+                      <Card.Text>
+                        <br />
+                        Price: {productsItems.price}
                       </Card.Text>
                     </Card.Body>
                   </Link>

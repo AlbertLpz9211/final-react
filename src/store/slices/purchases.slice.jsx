@@ -1,8 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { setIsLoadingScreen } from "./isLoadingScreen.slice";
+import getConfig from "../../utils/getConfig";
 
-export const purchasesSlice = createSlice({
+
+export const purchasesSlice  = createSlice({
   name: "purchases",
   initialState: [],
   reducers: {
@@ -13,12 +15,13 @@ export const purchasesSlice = createSlice({
 });
 
 export const purchasesThunk = () => dispatch => {
-    dispatch(setIsLoadingScreen(true));
-    return axios.get(`https://e-commerce-api.academlo.tech/api/v1/purchases`)
-        .then((res) => dispatch(setPurchases(res.data)))
-        .finally(() => dispatch(setIsLoadingScreen(false)));
-}
+  dispatch(setIsLoadingScreen(true));
+  return axios
+    .get('https://e-commerce-api.academlo.tech/api/v1/purchases',getConfig())
+    .then((res) => dispatch(setPurchases(res.data.data.purchases)))
+    .finally(() => dispatch(setIsLoadingScreen(false)));
+};
 
-export const {setPurchases} = purchasesSlice.actions;
+export const { setPurchases } = purchasesSlice.actions;
 
 export default purchasesSlice.reducer;
