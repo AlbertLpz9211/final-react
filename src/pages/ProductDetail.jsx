@@ -37,7 +37,7 @@ const ProductDetail = () => {
   return (
     <div>
       <h1>{productFund?.title}</h1>
-
+      <br />
       <Row>
         {/* descripcion del producto */}
         <Col lg={9}>
@@ -63,7 +63,7 @@ const ProductDetail = () => {
                 src={productFund?.productImgs[2]}
                 alt="Third slide"
                 className="img-fluid"
-                style={{ height: 400}}
+                style={{ height: 400 }}
               />
             </Carousel.Item>
           </Carousel>
@@ -81,7 +81,6 @@ const ProductDetail = () => {
                     src={newProducts.productImgs[0]}
                     alt=""
                     className="img-fluid"
-                    style={{ height: 200, width: 200, objectFit: "contain" }}
                   />
                 </Link>
               </ListGroup.Item>

@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const isLoadingScreen = createSlice({
   name: "isLoadingScreen",
-  initialState: false,
+  initialState: true,
   reducers: {
     setIsLoadingScreen: (state, action) => {
       return action.payload;

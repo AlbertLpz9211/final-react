@@ -44,7 +44,7 @@ const RootPage = () => {
           <ListGroup>
             {categoriesProduct.map((category) => (
               <ListGroup.Item
-                key={category.id}
+                // key={category.id}
                 style={{ cursor: "pointer" }}
                 onClick={() => dispatch(filterProductThunk(category.id))}
               >
@@ -89,7 +89,7 @@ const RootPage = () => {
                     <Card.Body>
                       <Card.Title> {productsItems.title}</Card.Title>
                       <Card.Text><br />
-                                  <h6>Price: {productsItems.price} </h6>
+                                  <p>Price: {productsItems.price} </p>
                       </Card.Text>
                     </Card.Body>
                   </Link>
