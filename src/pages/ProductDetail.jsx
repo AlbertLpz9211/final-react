@@ -10,6 +10,7 @@ const ProductDetail = () => {
     dispatch(getProductThunk());
   }, []);
 
+
   const productsList = useSelector((state) => state.producs);
 
   const productFund = productsList.find(
