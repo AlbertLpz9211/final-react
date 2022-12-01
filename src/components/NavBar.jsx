@@ -1,3 +1,4 @@
+import { Button, InputGroup } from "react-bootstrap";
 import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -18,7 +19,7 @@ const NavBar = () => {
             <Nav.Link as={Link} to="/purchases">
               Purchases
             </Nav.Link>
-            <Nav.Link as={"button"}>cart</Nav.Link>
+            <Nav.Link as={"Button"}>cart</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
