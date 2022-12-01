@@ -34,7 +34,7 @@ const RootPage = () => {
       .then((res) => setCategoriesProduct(res.data.data.categories));
   }, []);
 
-  console.log(categoriesProduct);
+
 
   return (
     <div>

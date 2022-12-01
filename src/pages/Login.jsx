@@ -11,9 +11,9 @@ const Login = () => {
     axios
       .post("https://e-commerce-api.academlo.tech/api/v1/users/login", data)
       .then((res) => {
-        console.log(res);
+        console.log(res.data.data.token);
         navigate("/");
-        localStorage.setItem("token", res.data.access); // res.data.data.token
+        localStorage.setItem("token", res.data.data.token); // res.data.data.token
       })
       .catch((error) => {
         if (error.response?.status === 404) {
@@ -27,7 +27,10 @@ const Login = () => {
 
   return (
     <div>
-      <Form onSubmit={handleSubmit(submit)} style={{ maxWidth: 500, margin: "0 auto" }}>
+      <Form
+        onSubmit={handleSubmit(submit)}
+        style={{ maxWidth: 500, margin: "0 auto" }}
+      >
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
