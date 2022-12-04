@@ -8,6 +8,6 @@ export default configureStore({
   reducer: {
     producs: productsSlice,
     isLoadinScreen: isLoadingScreen,
-    cart: purchasesSlice,
+    purchases: purchasesSlice,
   },
 });

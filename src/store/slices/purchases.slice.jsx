@@ -18,7 +18,7 @@ export const purchasesThunk = () => dispatch => {
   dispatch(setIsLoadingScreen(true));
   return axios
     .get('https://e-commerce-api.academlo.tech/api/v1/purchases',getConfig())
-    .then((res) => dispatch(setPurchases(res.data.data.purchases)))
+    .then((res) => dispatch(setPurchases(res.data.data.purchases))) //res.data.data.purchases
     .finally(() => dispatch(setIsLoadingScreen(false)));
 };
 
