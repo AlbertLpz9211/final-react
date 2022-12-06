@@ -6,7 +6,7 @@ import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -25,11 +25,12 @@ const NavBar = () => {
               <Nav.Link as={Link} to="/purchases">
                 Purchases
               </Nav.Link>
-              <Nav.Link as={"button"}>cart</Nav.Link>
+              <Nav.Link as={"button"} onClick={handleShow}>cart</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
+
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Offcanvas</Offcanvas.Title>

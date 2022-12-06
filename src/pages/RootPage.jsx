@@ -28,7 +28,6 @@ const RootPage = () => {
 
   useEffect(() => {
     dispatch(getProductThunk());
-
     axios
       .get("https://e-commerce-api.academlo.tech/api/v1/products/categories")
       .then((res) => setCategoriesProduct(res.data.data.categories));

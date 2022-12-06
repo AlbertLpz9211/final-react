@@ -1,16 +1,21 @@
 import axios from "axios";
 import React from "react";
+import { useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { setIsLoadingScreen } from "../store/slices/isLoadingScreen.slice";
 
 const Login = () => {
+  const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   const submit = (data) => {
     axios
       .post("https://e-commerce-api.academlo.tech/api/v1/users/login", data)
       .then((res) => {
+        alert("bienvenido" + " " + data.email);
         console.log(res.data.data.token);
         navigate("/");
         localStorage.setItem("token", res.data.data.token); // res.data.data.token
@@ -24,6 +29,10 @@ const Login = () => {
         }
       });
   };
+
+  useEffect(() => {
+    dispatch(setIsLoadingScreen(false));
+  }, [submit]);
 
   return (
     <div>
