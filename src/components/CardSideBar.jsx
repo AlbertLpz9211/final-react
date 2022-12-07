@@ -1,11 +1,22 @@
-import React from 'react';
+import React from "react";
+import { Offcanvas } from "react-bootstrap";
 
-const CardSideBar = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+const CardSideBar = ({show, handleClose, handleShow}) => {
+
+  return (
+    <>
+      {/* carrito */}
+      <Offcanvas show={show} onHide={handleClose}>
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          Some text as placeholder. In real life you can have the elements you
+          have chosen. Like, text, images, lists, etc.
+        </Offcanvas.Body>
+      </Offcanvas>
+    </>
+  );
 };
 
 export default CardSideBar;

@@ -4,6 +4,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
+import CardSideBar from "./CardSideBar";
 
 const NavBar = () => {
   const [show, setShow] = useState(false);
@@ -25,21 +26,14 @@ const NavBar = () => {
               <Nav.Link as={Link} to="/purchases">
                 Purchases
               </Nav.Link>
-              <Nav.Link as={"button"} onClick={handleShow}>cart</Nav.Link>
+              <Nav.Link as={"button"} onClick={handleShow}>
+                cart
+              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
-
-      <Offcanvas show={show} onHide={handleClose}>
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
-        </Offcanvas.Header>
-        <Offcanvas.Body>
-          Some text as placeholder. In real life you can have the elements you
-          have chosen. Like, text, images, lists, etc.
-        </Offcanvas.Body>
-      </Offcanvas>
+      <CardSideBar show={show} handleClose ={handleClose} handleShow={handleShow}/>
     </>
   );
 };
